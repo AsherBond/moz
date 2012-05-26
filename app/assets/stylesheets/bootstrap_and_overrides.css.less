@@ -32,7 +32,7 @@ body { padding-top: 60px; }
 @tableBorder: #c4c4c4;
 
 // 
-
+.navbar-search .search-query { background: darken(@myRed,5%); }
 .thumbnail { background-color: @myGray; }
  .thumbnail, a.thumbnail {
 	padding:10px;
@@ -62,3 +62,37 @@ a.brand:hover {
 }
 
 #profile-songs { margin-top:20px; }
+
+
+.form-actions {
+  .border-radius(5px 5px);
+  .box-shadow(0px 0px 3px rgba(0,0,0,0.4));
+  background:darken(@myGray, 2%);
+}
+
+footer .container-fluid {
+  background:darken(@myGray, 40%);
+  border-top: 10px solid darken(@myGray, 20%);
+  color:white;
+  padding:20px 0;
+  margin-top:20px;
+  margin-bottom:none;
+
+}
+footer li { list-style:none;color:white;font-size:14px;padding:3px; }
+
+footer li i { font-size:18px; }
+footer li a, footer li a:visited { color:white;font-weight:bold;text-decoration:none; border-bottom:1px dotted rgba(255,255,255,0.4); }
+footer li a:hover, footer li a:active { color:#ffeab7;font-weight:bold;text-decoration:none;  }
+footer ul { margin-left:10px; }
+footer h1, footer h4 { 
+  color:white;
+  text-shadow:1px 1px 0 rgba(0,0,0,0.5);
+}
+footer h1 {
+  font-size:45px;
+  padding:15px 0;
+}
+footer h4{
+  font-size:120%;
+}
