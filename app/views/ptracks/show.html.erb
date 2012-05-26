@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @ptrack.user %>
+</p>
+
+<p>
+  <b>Song:</b>
+  <%= @ptrack.song_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ptrack_path(@ptrack) %> |
+<%= link_to 'Back', ptracks_path %>

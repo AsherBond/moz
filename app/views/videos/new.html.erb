@@ -1,0 +1,19 @@
+<%= provide(:title, 'New Video') %>
+<div class="row">
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Video Dashboard", video_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+
+
+      <li class="active">New Video</li>
+    </ul>
+    <div class="well">
+
+      <%= render 'form' %>
+
+    </div>
+  </div>
+</div>

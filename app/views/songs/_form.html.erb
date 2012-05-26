@@ -1,0 +1,34 @@
+<%= simple_form_for [current_user, @album, @song], :html => {:class => 'form-vertical'} do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :title, :hint => "The title of the song." %>
+
+    <hr>
+
+    <%= f.input :file, :hint => "MP3's only for now :)" %>
+
+    <% if @song.file.file? %>
+      <h6>Preview Song</p>
+      <div class="btn-group">
+        <%= link_to "<i class='icon-play'></i>".html_safe, "#", :class => "btn btn-danger btn-mini" %><%= link_to "Play Song", "#", :class => "btn  btn-danger disabled btn-mini" %>
+      </div>
+    <% end %>
+
+    <hr>
+    <% if @song.artwork.file? %>
+      <div class="pull-right">
+        <h6>Current Artwork</h6>
+        <%= image_tag @song.artwork.url(:avatar) %>
+      </div>
+    <% end %>
+
+    <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+
+    <hr>
+
+    <%= f.input :lyric, :as => :text, :input_html => {:class => "span4", :rows => 4} %>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+    </div>
+<% end %>

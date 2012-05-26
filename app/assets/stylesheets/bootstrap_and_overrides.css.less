@@ -1,0 +1,64 @@
+@import "twitter/bootstrap/bootstrap";
+body { padding-top: 60px; }
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-path('fontawesome-webfont.eot');
+@fontAwesomeWoffPath: asset-path('fontawesome-webfont.woff');
+@fontAwesomeTtfPath: asset-path('fontawesome-webfont.ttf');
+@fontAwesomeSvgzPath: asset-path('fontawesome-webfont.svgz');
+@fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
+
+// Font Awesome
+@import "fontawesome";
+
+@myRed: #A33724;
+@myGray: #e3e3e3;
+@myYellow: #fff6e4;
+@navbarBackground: darken(@myRed, 3%);
+@navbarBackgroundHighlight: lighten(@myRed, 5%);
+@navbarLinkColor: @white;
+@navbarLinkColorHover: lighten(@myRed, 35%);
+
+@linkColor: @myRed;
+@linkColorHover: darken(@myRed, 10%);
+
+@tableBackground: @myGray;
+@tableBackgroundAccent:@myYellow;
+@tableBorder: #c4c4c4;
+
+// 
+
+.thumbnail { background-color: @myGray; }
+ .thumbnail, a.thumbnail {
+	padding:10px;
+	.transition(box-shadow .3s ease-in-out);
+}
+ .thumbnail:hover, a.thumbnail:hover {
+	.box-shadow(0 10px 10px rgba(0,0,0,.25));
+}
+img { max-width: 100%; }
+hr { border-top:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(255,255,255,0.2);}
+.hb { border-bottom:1px dashed rgba(0,0,0,0.2);padding-bottom:5px;margin-bottom:8px;}
+
+a.brand { 
+  margin-top:3px;
+  margin-right:10px;
+  
+  width:120px;
+  height:15px;
+  background-image: url('/assets/logo.png');
+  background-position:top right;
+  background-repeat:no-repeat; 
+  .transition(background-image .3s ease-in-out);
+
+}
+a.brand:hover {
+  background-image: url('/assets/logo_hover.png');
+}
+
+#profile-songs { margin-top:20px; }

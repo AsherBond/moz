@@ -1,0 +1,25 @@
+<h1>Listing ptracks</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Song</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ptracks.each do |ptrack| %>
+  <tr>
+    <td><%= ptrack.user %></td>
+    <td><%= ptrack.song_id %></td>
+    <td><%= link_to 'Show', ptrack %></td>
+    <td><%= link_to 'Edit', edit_ptrack_path(ptrack) %></td>
+    <td><%= link_to 'Destroy', ptrack, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ptrack', new_ptrack_path %>

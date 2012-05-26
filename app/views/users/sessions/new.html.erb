@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="span2">
+		<h4>New to Mozapolis?</h4>
+		<p><%= link_to "Signup", new_user_registration_path %> for a free account.</p>
+		<h4>Forgot your password?</h4>
+		<p>Not a problem, reset your password <%= link_to "here", new_user_password_path %>.</p>
+	</div>
+	<div class="span6">
+		<div class="well">
+			<h2 class="hb">Sign in</h2>
+
+			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f| %>
+			  <div class="inputs">
+			    <%= f.input :email, :required => false, :autofocus => true %>
+			    <%= f.input :password, :required => false %>
+			    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+			  </div>
+
+			  <div class="form-actions">
+			    <%= f.button :submit, "Sign in", :class => "btn btn-success" %>
+			  </div>
+			<% end %>
+
+		</div>
+	</div>
+	<div class="span4">
+		<h2 class="hb">Fan</h2>
+	    <p>It does adhere in fine layers, like
+	      powdered charcoal, to the sole and sides of my boots. </p>
+	    <ul>
+	      </li>
+	      <li class="icon-ok">That's one small step for [a] man; one giant leap for mankind.</li>
+	      <li class="icon-ok">A good rule for rocket experimenters to follow is this: always assume that it will explode.
+	      </li>
+	    </ul>
+		<h2 class="hb">Artist</h2>
+	    <p>The surface is fine and powdery. I can kick it up loosely with my toe. </p>
+	    <ul>
+	      <li class="icon-ok">A good rule for rocket experimenters to follow is this: always assume that it will explode.
+	      </li>
+	      <li class="icon-ok">That's one small step for [a] man; one giant leap for mankind.</li>
+	      <li class="icon-ok">A good rule for rocket experimenters to follow is this: always assume that it will explode.
+	      </li>
+	    </ul>
+	</div>
+</div>

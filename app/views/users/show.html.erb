@@ -1,0 +1,223 @@
+<div class="row">
+	<div class="span8">
+		<div class="well" id="main-box">
+			<h1><%= @user.artist_name %></h1>
+			<h3>1,000 Plays / 2,000 Views</h3>
+			<p>
+				<%= link_to "Message", root_path, :class => "btn" %>
+				<%= link_to "Follow", root_path, :class => "btn" %>
+				<%= link_to "Popup Player", root_path, :class => "btn" %>
+			</p>
+			<p>San Jose, California</p>
+		</div>
+
+		<!---->
+		<%= render 'shared/player' %>
+		<%= render 'shared/playlist' %>
+
+		<!---->
+
+	    <ul class="nav nav-pills" id="artist-profile-tabs">
+	      <li class="active"><a href="#news" data-toggle="tab">News</a></li>
+	      <li><a href="#about" data-toggle="tab">About</a></li>
+	      <li><a href="#albums" data-toggle="tab">Albums</a></li>
+	      <li><a href="#videos" data-toggle="tab">Videos</a></li>
+	      <li><a href="#events" data-toggle="tab">Events</a></li>
+	      <li><a href="#comments" data-toggle="tab">Comments</a></li>
+
+	    </ul>
+
+		<!---->
+
+
+	    <div class="tab-content">
+
+	      <div class="tab-pane" id="albums">
+			<ul class="thumbnails">
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5><%= link_to "Cody", root_path %></h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+
+			</ul>
+	      </div>
+
+	      <div class="tab-pane" id="videos">
+			<ul class="thumbnails">
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+			  <li class="span2">
+			    <div class="thumbnail">
+			      <img src="http://placehold.it/260x180" alt="">
+			      <h5>Thumbnail label</h5>
+			      <p>Thumbnail caption right here...</p>
+			    </div>
+			  </li>
+
+			</ul>
+	      </div>
+
+	      <div class="tab-pane" id="events">
+			<table class="table table-bordered tabled-striped">
+			  <thead>
+			    <tr>
+			      <th>Event</th>
+			      <th>Date</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td><%= link_to "Event Name", root_path %><br />Buy tickets <%= link_to "here", root_path %>.</td>
+			      <td>May 16, 2012</td>
+			    </tr>
+			  </tbody>
+			</table>
+	      </div>
+
+	      <div class="well tab-pane" id="about">
+	      	<h3>About</h3>
+	      	<p></p>
+	      </div>
+
+	      <div class="well tab-pane" id="comments">
+	      	<blockquote>
+	      		<p>Test</p>
+	      		<small><%= link_to "Cody", root_path %></small>
+	      	</blockquote>
+	      	<blockquote>
+	      		<p>Test</p>
+	      		<small><%= link_to "Cody", root_path %></small>
+	      	</blockquote>
+	      	<blockquote>
+	      		<p>Test</p>
+	      		<small><%= link_to "Cody", root_path %></small>
+	      	</blockquote>
+	      	<%= link_to "Write Comment", root_path, :class => "btn" %>
+	      </div>
+
+	      <div class="well tab-pane active" id="news">
+	      	<h3 class="hb">News Title</h3>
+	      	<p>Lorem ipsm</p>
+	      	<%= link_to "Read More", root_path, :class => "btn" %>
+
+	      	<hr>
+
+	      	<h3 class="hb">News Title</h3>
+	      	<p>Lorem ipsm</p>
+	      	<%= link_to "Read More", root_path, :class => "btn" %>
+	      </div>
+
+	 	</div>
+	</div>
+
+	<div class="span4">
+		<ul class="thumbnails">
+		  <li class="span4">
+		    <a href="#" class="thumbnail">
+		      <img src="http://placehold.it/760x680" alt="">
+		    </a>
+		  </li>
+		</ul>
+
+		<!---->
+
+		<ul class="thumbnails">
+		  <li class="span2">
+		    <div class="thumbnail">
+		      <img src="http://placehold.it/260x180" alt="">
+		      <h5>Thumbnail label</h5>
+		      <p>Thumbnail caption right here...</p>
+		    </div>
+		  </li>
+		  <li class="span2">
+		    <div class="thumbnail">
+		      <img src="http://placehold.it/260x180" alt="">
+		      <h5>Thumbnail label</h5>
+		      <p>Thumbnail caption right here...</p>
+		    </div>
+		  </li>
+		  <li class="span2">
+		    <div class="thumbnail">
+		      <img src="http://placehold.it/260x180" alt="">
+		      <h5>Thumbnail label</h5>
+		      <p>Thumbnail caption right here...</p>
+		    </div>
+		  </li>
+		  <li class="span2">
+		    <div class="thumbnail">
+		      <img src="http://placehold.it/260x180" alt="">
+		      <h5>Thumbnail label</h5>
+		      <p>Thumbnail caption right here...</p>
+		    </div>
+		  </li>
+
+		</ul>
+
+		<%= link_to "View Albums", root_path, :class => "btn" %>
+
+		<hr>
+
+		<!---->
+
+		<table class="table table-bordered tabled-striped">
+		  <thead>
+		    <tr>
+		      <th>Event</th>
+		      <th>Date</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td><%= link_to "Event Name", root_path %><br />Buy tickets <%= link_to "here", root_path %>.</td>
+		      <td>May 16, 2012</td>
+		    </tr>
+		  </tbody>
+		</table>
+
+		<%= link_to "View Events", root_path, :class => "btn" %>
+
+	</div>
+</div>

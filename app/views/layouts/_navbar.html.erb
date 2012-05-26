@@ -1,0 +1,69 @@
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#"></a>
+          <div class="container nav-collapse">
+          <ul class="nav"><li class="divider-vertical"></li></ul>
+            <form class="navbar-search pull-left">
+              <input type="text" class="search-query" placeholder="Search">
+            </form>
+            <ul class="nav">
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="icon-search"></i>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">Search by:</li>
+                  <li><%= link_to "<i class='icon-user'></i> Artist".html_safe, about_path  %></li>
+                  <li><%= link_to "<i class='icon-picture'></i> Album".html_safe, about_path  %></li>
+                  <li><%= link_to "<i class='icon-check'></i> Advanced".html_safe, about_path  %></li>
+
+                </ul>
+
+              </li>
+
+              <li class="divider-vertical"></li>
+
+              <li><%= link_to "<i class='icon-headphones'></i> Music".html_safe, about_path  %></li>
+            </ul>
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-home"></i> Dashboards
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to('<i class="icon-picture"></i> Albums'.html_safe, album_dashboard_path) %></li>
+                    <li><%= link_to('<i class="icon-facetime-video"></i> Videos'.html_safe, video_dashboard_path) %></li>
+                  </ul>
+                </li>
+                <li class="divider-vertical"></li>
+                <li>
+                  <%= link_to('<i class="icon-edit"></i> Edit Profile'.html_safe, edit_user_registration_path) %>       
+                </li>
+                <li class="divider-vertical"></li>
+                <li>
+                <%= link_to('<i class="icon-signout"></i> Sign out'.html_safe, destroy_user_session_path, :method => :delete) %>
+                </li>
+              <% else %>
+                <li>
+                <%= link_to('<i class="icon-signin"></i> Sign in'.html_safe, new_user_session_path)  %>  
+                </li>
+                <li class="divider-vertical"></li>
+                <li>
+                <%= link_to('<i class="icon-user"></i> Register'.html_safe, new_user_registration_path)  %>
+                </li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>

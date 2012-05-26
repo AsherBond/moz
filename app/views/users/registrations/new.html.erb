@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="span2">
+		<h4>Already signed up?</h4>
+		<p><%= link_to "Login", new_user_session_path %> with your account.</p>
+		<h4>Forgot your password?</h4>
+		<p>Not a problem, reset your password <%= link_to "here", new_user_password_path %>.</p>
+	</div>
+	<div class="span8">
+		<div class="well">
+			<h2 class="hb">Account Sign Up</h2>
+
+			<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+			  <%= f.error_notification %>
+
+			  <h6>Credentials</h6>
+			  <%= f.input :email, :required => true, :autofocus => true %>
+			  <%= f.input :username, :required => true %>
+
+			  <h6>Personal</h6>
+			  <%= f.input :first_name, :required => true %>
+			  <%= f.input :last_name, :required => true %>
+
+			  <h6>Password</h6>
+			  <%= f.input :password, :required => true %>
+			  <%= f.input :password_confirmation, :required => true %>
+
+			  <div class="form-actions">
+			    <%= f.button :submit, "Sign up", :class => "btn btn-success" %>
+			    <%= link_to "Cancel", :back, :class => "btn btn-inverse" %>
+			  </div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

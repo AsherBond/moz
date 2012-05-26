@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Moz" %></title>
+    <%= render 'layouts/meta' %>
+    <%= render 'layouts/shiv' %>
+    <%= render 'layouts/styles' %>
+    <%= render 'layouts/favicons' %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="container">
+      <div class="content">
+        <%= render 'shared/message' %>
+        <%= yield %>
+      </div><!--/content-->
+      <%= render 'layouts/footer' %>
+      <%= render 'layouts/js' %>
+    </div> <!-- /container -->
+  </body>
+</html>

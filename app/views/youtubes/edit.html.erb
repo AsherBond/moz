@@ -1,0 +1,20 @@
+<%= provide(:title, 'Edit Video') %>
+<div class="row">
+  <div class="span6 offset3">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Video Dashboard", video_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+
+
+      <li class="active">Edit Video</li>
+    </ul>
+    <div class="well">
+      <%= link_to "Delete Video".html_safe, user_youtube_url(current_user, @youtube), :class => "btn btn-danger btn-mini pull-right", :confirm => "Are you sure you want to delete this video?", :method => :delete %>
+
+	  <%= render 'form' %>
+
+    </div>
+  </div>
+</div>
