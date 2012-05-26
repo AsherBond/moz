@@ -39,6 +39,7 @@ gem 'country-select'
 gem 'friendly_id', :git => 'git://github.com/norman/friendly_id.git'
 gem 'faker'
 gem 'capistrano'
+gem 'unicorn'
 
 
 # File Uploads
