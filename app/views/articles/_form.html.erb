@@ -1,0 +1,25 @@
+<%= simple_form_for [current_user, @article], :html => {:class => 'form-vertical'} do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title, :hint => "The title of the article." %>
+
+    <hr>
+
+    <% if @article.photo.file? %>
+      <div class="pull-right">
+        <h6>Current Image</h6>
+        <p><%= image_tag @article.photo.url(:avatar) %></p>
+      </div>
+    <% end %>
+    <%= f.input :photo, :hint => "5MB limit | JPEG/PNG only." %>
+
+    <hr>
+
+    <%= f.input :content, :as => :text, :input_html => {:class => "span6", :rows => 8} %>
+
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+    </div>
+<% end %>

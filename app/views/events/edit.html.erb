@@ -1,0 +1,21 @@
+<%= provide(:title, 'Edit Event') %>
+<div class="row">
+  <div class="span8 offset2">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Event Dashboard", events_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+      <li>
+        <%= link_to "#{@event.title}", event_path(@event) %>
+        <span class="divider">/</span>
+      </li>
+      <li class="active">Editing <%= @event.title %></li>
+    </ul>
+    <div class="well">
+
+      <%= render 'edit_form' %>
+
+    </div>
+  </div>
+</div>

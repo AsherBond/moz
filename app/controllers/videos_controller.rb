@@ -1,7 +1,10 @@
 class VideosController < ApplicationController
   load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy]
-  # GET /videos
-  # GET /videos.json
+  def home
+    @user = current_user
+    @videos = @user.videos
+    @youtube = @user.youtubes
+  end
   def index
     @videos = Video.all
   end
@@ -10,6 +13,10 @@ class VideosController < ApplicationController
   # GET /videos/1.json
   def show
     @video = Video.find(params[:id])
+
+    @commentable = @video
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   # GET /videos/new

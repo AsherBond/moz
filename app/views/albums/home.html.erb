@@ -1,0 +1,35 @@
+<%= provide(:title, 'Album Dashboard') %>
+<div class="row">
+  <div class="span3">
+    <%= link_to "<i class='icon-plus'></i> Create New Album".html_safe, new_user_album_path(current_user), :class => "btn btn-success btn-large" %>
+    <hr>
+
+    <h5>Easily manage and edit your albums</h5>
+    <p>To get started add a new album, and you find album settings in the edit menu!</p>
+
+  </div>
+  <div class="span9">
+    <h2 class="hb">My Albums</h2>
+    <ul class="thumbnails">
+      <% @albums.each do |album| %>
+          <li class="span3">
+            <div class="thumbnail">
+              <%= image_tag album.artwork.url(:medium) %>
+
+              <div class="btn-group">
+                <%= link_to "<i class='icon-eye-open'></i> #{album.title}".html_safe, album_path(album), :class => "btn", :data => { :toggle => "tooltip"}, :rel => "tooltip", :title => "Go to the public album player" %>
+                <%= link_to "<i class='icon-upload-alt'></i>".html_safe, new_album_song_path(album), :class => "btn btn-success", :data => { :toggle => "tooltip"}, :rel => "tooltip", :title => "Add songs to album" %>
+                <%= link_to "<i class='icon-list-alt'></i>".html_safe, album_songs_path(album), :class => "btn btn-inverse", :data => { :toggle => "tooltip"}, :rel => "tooltip", :title => "Album Manager" %>
+                <%= link_to "<i class='icon-edit'></i>".html_safe, edit_album_path(album), :class => "btn btn-danger", :data => { :toggle => "tooltip"}, :rel => "tooltip", :title => "Edit the album details" %>
+              </div>
+            </div>
+          </li>
+      <% end %>
+
+    </ul>
+    <% if @albums.empty? %>
+      <div class="alert alert-warning">There are no albums. <%= link_to "Click here", new_user_album_path(current_user) %> to get started. <a class="close" data-dismiss="alert" href="#">×</a></div>
+    <% end %>
+
+  </div>
+</div>

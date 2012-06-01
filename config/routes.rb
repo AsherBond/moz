@@ -1,6 +1,5 @@
 Moz::Application.routes.draw do
 
-
   root :to => "pages#home"
 
   devise_for :users, :controllers => { :registrations => :registrations }
@@ -15,25 +14,50 @@ Moz::Application.routes.draw do
   resources :users, :only => [:show, :index]
 
   resources :users do 
-    resources :videos
-    resources :youtubes
 
-    resources :playlists do
+    resources :comments
+
+    resources :articles, :shallow => true do 
+      resources :comments 
+    end
+
+    resources :events, :shallow => true do 
+      resources :comments 
+    end
+
+    resources :videos, :shallow => true do 
+      resources :comments 
+    end
+
+    resources :youtubes, :shallow => true do
+      resources :comments
+    end
+
+    resources :playlists, :shallow => true do
       resources :ptracks
     end
 
-    resources :albums do
-      resources :songs
+    resources :albums, :shallow => true do
+      resources :comments
+
+      resources :songs do
+        resources :comments
+      end
+
     end
   end
 
-  match 'about'               => "pages#about"
-  match '/dashboard'          => 'users#dashboard'
-  match '/song-dashboard'     => 'users#songdashboard',    as: 'song_dashboard'
-  match '/gallery-dashboard'  => 'users#gallerydashboard', as: 'gallery_dashboard'
-  match '/album-dashboard'    => 'users#albumdashboard',   as: 'album_dashboard'
-  match '/events-dashboard'   => 'users#eventsdashboard',  as: 'events_dashboard'
-  match '/video-dashboard'    => 'users#videodashboard',   as: 'video_dashboard'
+  match '/music'               => "pages#music"
+  match '/about'               => "pages#about"
+  match '/team'                => "pages#team"
+  match '/micropost-dashboard' => 'microposts#home',        as: 'song_dashboard'
+  match '/song-dashboard'      => 'songs#home',             as: 'song_dashboard'
+  match '/gallery-dashboard'   => 'galleries#home',         as: 'gallery_dashboard'
+  match '/album-dashboard'     => 'albums#home',            as: 'album_dashboard'
+  match '/events-dashboard'    => 'events#home',            as: 'events_dashboard'
+  match '/video-dashboard'     => 'videos#home',            as: 'video_dashboard'
+  match '/article-dashboard'   => 'articles#home',          as: 'article_dashboard'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

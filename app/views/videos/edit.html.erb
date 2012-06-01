@@ -11,9 +11,9 @@
       <li class="active">Edit Video</li>
     </ul>
     <div class="well">
-      <%= link_to "Delete Video".html_safe, user_video_url(@user, @video), :class => "btn btn-danger btn-mini pull-right", :confirm => "Are you sure you want to delete this video?", :method => :delete %>
+      <%= link_to "Delete Video".html_safe, video_url(@video), :class => "btn btn-danger btn-mini pull-right", :confirm => "Are you sure you want to delete this video?", :method => :delete %>
 
-      <%= render 'form' %>
+      <%= render :partial => 'edit_form' %>
 
     </div>
   </div>

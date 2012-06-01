@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="span6">
+		<div class="well">
+			<h4 class="hb"><%= @video.title %></h4>
+			<p><%= @video.about %></p>
 
-<p>
-  <b>User:</b>
-  <%= @video.user %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @video.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @video.description %>
-</p>
-
-<p>
-  <b>Youtube url:</b>
-  <%= @video.youtube_url %>
-</p>
+			<h6>Uploaded by</h6>
+			<p><%= link_to @video.user.username, @video.user %></p>
+			<h6>Uploaded at <%= @video.created_at %></h6>
+		</div>
+	</div>
+	<div class="span6">
+	    <div class="well" id="comments">
+	      <h6 class="hb">Comments</h6>
+	      <%= render "comments/comments" %>
+	      <h6 class="hb">Write your own comment</h6>
+	      <%= render "comments/form" %>
+	    </div>
 
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
+	</div>
+</div>

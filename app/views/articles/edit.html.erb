@@ -1,0 +1,21 @@
+<%= provide(:title, 'Edit Article') %>
+<div class="row">
+  <div class="span8 offset2">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to "Article Dashboard", article_dashboard_url %>
+        <span class="divider">/</span>
+      </li>
+      <li>
+        <%= link_to "#{@article.title}", article_path(@article) %>
+        <span class="divider">/</span>
+      </li>
+      <li class="active">Editing <%= @article.title %></li>
+    </ul>
+    <div class="well">
+
+      <%= render 'edit_form' %>
+
+    </div>
+  </div>
+</div>

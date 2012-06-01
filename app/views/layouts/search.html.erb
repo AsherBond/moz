@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Moz" %></title>
+    <%= render 'layouts/meta' %>
+    <%= render 'layouts/shiv' %>
+    <%= render 'layouts/styles' %>
+    <%= render 'layouts/favicons' %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="container">
+      <div class="content">
+        <%= render 'shared/message' %>
+        <%= yield %>
+      </div><!--/content-->
+    </div> <!-- /container -->
+    <%= render 'layouts/footer' %>
+    <%= include_gon %>
+    <%= render 'layouts/js' %>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $('#typeahead').typeahead({ source:gon.users });
+        });
+    </script>
+  </body>
+</html>

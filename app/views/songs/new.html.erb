@@ -8,7 +8,7 @@
         <span class="divider">/</span>
       </li>
       <li>
-        <%= link_to @album.title, user_album_songs_path(@album.user_id, @album) %>
+        <%= link_to @album.title, album_songs_path(@album.user_id, @album) %>
         <span class="divider">/</span>
       </li>
       <li class="active">New Song</li>

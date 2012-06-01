@@ -1,0 +1,14 @@
+<%= simple_form_for [@video], :html => {:class => 'form-vertical'} do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :title %>
+    <%= f.input :about, :input_html => {:class => "span4", :rows => 4} %>
+    <hr>
+    <%= f.input :file %>
+    <hr>
+    <%= f.input :year %>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+    </div>
+<% end %>

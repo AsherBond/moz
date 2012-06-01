@@ -1,7 +1,20 @@
 class Song < ActiveRecord::Base
   belongs_to :album
+  has_many :comments, as: :commentable
   attr_accessible :lyric, :title, :file, :artwork
-
+  
+  validates :title,
+          presence: true,
+          length: {
+              minimum: 2, maximum: 40,
+              :message => "is too short"
+          }
+  validates :lyric,
+          presence: true,
+          length: {
+              minimum: 2, maximum: 1200,
+              :message => "you have exceded 1200 letters"
+          }
   # Friendly URLS
   # -----
   extend FriendlyId

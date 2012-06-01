@@ -19,4 +19,5 @@
 
 
 $('#user_about').wysihtml5();
+$('#article_content').wysihtml5();
 

@@ -7,7 +7,7 @@
         <span class="divider">/</span>
       </li>
       <li>
-        <%= link_to "#{@album.title}", user_album_songs_path(@album.user_id, @album) %>
+        <%= link_to "#{@album.title}", album_songs_path(@album) %>
         <span class="divider">/</span>
       </li>
       <li class="active">Editing <%= @song.title %></li>
@@ -15,7 +15,7 @@
 
     <div class="well">
 
-      <%= render 'form' %>
+      <%= render 'edit_form' %>
 
     </div>
   </div>

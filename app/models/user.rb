@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   has_many :albums
   has_many :videos
   has_many :youtubes
+  has_many :articles
+  has_many :events
   has_many :playlists
+  has_many :comments, as: :commentable
 
 
   # Friendly URLS
@@ -14,6 +17,21 @@ class User < ActiveRecord::Base
   # -----
 	rolify
 
+  # Search the users.
+  include PgSearch
+  pg_search_scope :search, against: [:artist_name, :about],
+                  using: {tsearch: {dictionary: "english"}},
+                  ignoring: :accents
+
+  # Search Helper
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+  
   # Lets make sure the user has a role.
   before_create :define_role
 
@@ -88,6 +106,22 @@ class User < ActiveRecord::Base
             :nav_text_hover_color,
             :nav_background_color,
             :nav_background_hover_color
+
+  # Valid email regex.
+  # -----
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  # Validate the current users email with a regex.
+  # -----
+  validates :email,
+            presence: true,
+            format: {with: VALID_EMAIL_REGEX, :message => "is not a valid email"},
+
+            uniqueness: {case_sensitive: false, :message => "is already registered"}
+
+  validates :public_email,
+            :allow_nil => true, :allow_blank => true,
+            format: {with: VALID_EMAIL_REGEX, :message => "is not a valid email"}
 
   # Edit profile validations
   validates :first_name,

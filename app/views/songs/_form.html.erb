@@ -1,4 +1,4 @@
-<%= simple_form_for [current_user, @album, @song], :html => {:class => 'form-vertical'} do |f| %>
+<%= simple_form_for [@album, @song], :html => {:class => 'form-vertical'} do |f| %>
     <%= f.error_notification %>
     <%= f.input :title, :hint => "The title of the song." %>
 

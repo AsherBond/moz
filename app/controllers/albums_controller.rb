@@ -1,4 +1,10 @@
 class AlbumsController < ApplicationController
+  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy]
+  def home 
+    @user = current_user
+    @albums = @user.albums
+  end
+  
   def index
     @user = User.find(params[:user_id])
     @albums = @user.albums
@@ -8,6 +14,10 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @artist = User.find(@album.user_id)
     @songs = @album.songs
+
+    @commentable = @album
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
   
   def new

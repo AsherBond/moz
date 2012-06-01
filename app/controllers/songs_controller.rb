@@ -16,7 +16,7 @@ class SongsController < ApplicationController
     @song = @album.songs.build(params[:song])
     if @song.save
       flash[:notice] = "Successfully created song."
-      redirect_to user_album_songs_path(current_user, @album)
+      redirect_to album_songs_path(@album)
     else
       render :action => 'index'
     end

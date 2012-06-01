@@ -7,7 +7,7 @@ class Ability
       can :manage, :all
     end
     if user.has_role? :artist
-      can :manage, [Album, Video, User, Youtube, Song]
+      can :manage, [Album, Video, User, Youtube, Song, Event, Article]
     end
   end
   

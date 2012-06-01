@@ -1,0 +1,51 @@
+<%= provide(:title, 'Video Dashboard') %>
+<div class="row">
+  <div class="span3">
+
+    <%= link_to "<i class='icon-upload-alt'></i> Upload New Video".html_safe, new_user_video_path(current_user), :class => "btn btn-large btn-success" %>
+    <hr>
+
+    <%= link_to "<i class='icon-plus'></i> Add Video From Youtube".html_safe, new_user_youtube_path(current_user), :class => "btn btn-large btn-info" %>
+
+    <hr>
+    <h5>Easily manage and edit your videos</h5>
+    <p>To get started add a new video, and you find video settings in the edit menu!</p>
+
+  </div>
+  <div class="span9">
+    <h2 class="hb">My Videos</h2>
+    <ul class="thumbnails">
+      <% @videos.each do |video| %>
+          <li class="span3">
+            <div class="thumbnail">
+              <%= image_tag video.file.url(:thumb) %>
+
+              <div class="btn-group">
+                <%= link_to "<i class='icon-eye-open'></i> #{video.title}".html_safe, video_path(video), :class => "btn" %>
+                <%= link_to "<i class='icon-edit'></i> Edit".html_safe, edit_video_path(video), :class => "btn btn-danger" %>
+              </div>
+            </div>
+          </li>
+      <% end %>
+
+    </ul>
+    <h2 class="hb">My Youtube Videos</h2>
+    <ul class="thumbnails">
+      <% @youtube.each do |video| %>
+          <li class="span3">
+            <div class="thumbnail">
+
+              <div class="btn-group">
+                <%= link_to "<i class='icon-eye-open'></i> #{video.title}".html_safe, youtube_path(video), :class => "btn" %>
+                <%= link_to "<i class='icon-edit'></i> Edit".html_safe, edit_youtube_path(video), :class => "btn btn-danger" %>
+              </div>
+            </div>
+          </li>
+      <% end %>
+
+    </ul>
+    <% if @videos.empty? && @youtube.empty? %>
+      <div class="alert alert-warning">There are no videos. <%= link_to "Click here", new_user_article_path(current_user) %> to get started. <a class="close" data-dismiss="alert" href="#">×</a></div>
+    <% end %>
+  </div>
+</div>

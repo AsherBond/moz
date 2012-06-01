@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  start: 2012-05-26 20:12:46
+  end: 2012-05-26 20:12:46
+  ticket_cost: 1
+  about: MyText
+
+two:
+  title: MyString
+  start: 2012-05-26 20:12:46
+  end: 2012-05-26 20:12:46
+  ticket_cost: 1
+  about: MyText

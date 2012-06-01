@@ -1,0 +1,26 @@
+<%= simple_form_for [@album], :html => {:class => 'form-vertical'} do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title, :hint => "The title of the album." %>
+
+    <hr>
+
+    <% if @album.artwork.file? %>
+      <div class="pull-right">
+        <h6>Current Image</h6>
+        <p><%= image_tag @album.artwork.url(:avatar) %></p>
+      </div>
+    <% end %>
+    <%= f.input :artwork, :hint => "5MB limit | JPEG/PNG only." %>
+
+    <hr>
+
+    <%= f.input :label, :hint => "If none, please select unsigned." %>
+    <%= f.input :year, :hint => "The year the album was produced." %>
+
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+    </div>
+<% end %>

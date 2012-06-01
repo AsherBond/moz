@@ -1,0 +1,3 @@
+<%= form_tag users_path, method: :get, :class => "navbar-search pull-left" do %>
+<%= text_field_tag :query, params[:query], :class => "search-query", :placeholder => "Artist Name...", :autocomplete => "off" %>
+<% end %>

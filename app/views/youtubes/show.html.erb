@@ -1,21 +1,23 @@
 <div class="row">
-	<div class="span4">
+	<div class="span6">
 		<iframe width="100%" height="315" src="http://www.youtube.com/embed/<%= @youtube.youtube_url %>" frameborder="0" allowfullscreen></iframe>
 		<div class="well">
 			<h4 class="hb"><%= @youtube.title %></h4>
 			<p><%= @youtube.about %></p>
 
 			<h6>Uploaded by</h6>
-			<p><a href="#">Cody</a></p>
+			<p><%= link_to @youtube.user.username, @youtube.user %></p>
 			<h6>Uploaded at <%= @youtube.created_at %></h6>
 		</div>
 	</div>
-	<div class="span8">
-		<h4 class="hb"><i class="icon-comments"></i> Comments</h4>
-		<blockquote>
-			<p>Hello</p>
-			<small>by <a href="#">Cody</a></small>
-		</bockquote>
+	<div class="span6">
+	    <div class="well" id="comments">
+	      <h6 class="hb">Comments</h6>
+	      <%= render "comments/comments" %>
+	      <h6 class="hb">Write your own comment</h6>
+	      <%= render "comments/form" %>
+	    </div>
+
 
 	</div>
 </div>

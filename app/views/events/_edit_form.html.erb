@@ -1,0 +1,28 @@
+<%= simple_form_for [@event], :html => {:class => 'form-vertical'} do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :title, :hint => "The title of the event." %>
+    <hr>
+    <%= f.input :start, :input_html => {:class => "span1"} %>
+    <%= f.input :end, :input_html => {:class => "span1"} %>
+
+    <hr>
+
+    <% if @event.photo.file? %>
+      <div class="pull-right">
+        <h6>Current Image</h6>
+        <p><%= image_tag @event.photo.url(:avatar) %></p>
+      </div>
+    <% end %>
+    <%= f.input :photo, :hint => "5MB limit | JPEG/PNG only." %>
+
+    <hr>
+
+    <%= f.input :about, :as => :text, :input_html => {:class => "span4", :rows => 4} %>
+
+
+    <div class="form-actions">
+      <%= f.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Back <i class='icon-arrow-left'></i>".html_safe, :back, :class => "btn btn-inverse" %>
+    </div>
+<% end %>

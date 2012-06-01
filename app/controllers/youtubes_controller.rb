@@ -8,6 +8,9 @@ class YoutubesController < ApplicationController
 
   def show
     @youtube = Youtube.find(params[:id])
+    @commentable = @youtube
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
 

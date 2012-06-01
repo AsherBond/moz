@@ -32,15 +32,21 @@ body { padding-top: 60px; }
 @tableBorder: #c4c4c4;
 
 // 
-.navbar-search .search-query { background: darken(@myRed,5%); }
-.thumbnail { background-color: @myGray; }
- .thumbnail, a.thumbnail {
+body { background: url('/assets/bg.png'); }
+.navbar-search .search-query { background: darken(@myRed,5%);width: 100px;.transition(width .3s ease-in-out); }
+.navbar-search .search-query:focus { width: 220px; }
+.thumbnail h5 a { font-size:16px; line-height:20px; }
+.well, .thumbnail { background-color: @white; }
+.well { border:1px solid darken(@myGray, 5%); }
+.drop-shadow { .box-shadow(0 10px 10px rgba(0,0,0,.25)); }
+.thumbnail, a.thumbnail {
 	padding:10px;
 	.transition(box-shadow .3s ease-in-out);
 }
- .thumbnail:hover, a.thumbnail:hover {
-	.box-shadow(0 10px 10px rgba(0,0,0,.25));
+.thumbnail:hover, a.thumbnail:hover {
+  .box-shadow(0 10px 10px rgba(0,0,0,.25));
 }
+.thumbnail .btn-group { margin-top:12px; }
 img { max-width: 100%; }
 hr { border-top:1px solid rgba(0,0,0,0.1); border-bottom:1px solid rgba(255,255,255,0.2);}
 .hb { border-bottom:1px dashed rgba(0,0,0,0.2);padding-bottom:5px;margin-bottom:8px;}
@@ -61,7 +67,7 @@ a.brand:hover {
   background-image: url('/assets/logo_hover.png');
 }
 
-#profile-songs { margin-top:20px; }
+#profile-songs table { margin-top:20px; }
 
 
 .form-actions {
@@ -95,4 +101,27 @@ footer h1 {
 }
 footer h4{
   font-size:120%;
+}
+
+
+// Alerts
+
+.alert-warning {
+ color: darken(@yellow, 30%);
+ #gradient > .vertical(@yellow, lighten(@yellow, 15%));
+ border-color:darken(@yellow, 10%);
+}
+
+.alert-success {
+ color: @white;
+ text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+ #gradient > .vertical(@green, lighten(@green, 15%));
+ border-color:darken(@green, 10%);
+}
+
+.alert-error {
+ color: @white;
+ text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+ #gradient > .vertical(@red, lighten(@red, 15%));
+ border-color:darken(@red, 10%);
 }

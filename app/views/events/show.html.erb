@@ -1,0 +1,44 @@
+<%= provide(:title, @event.title) %>
+<div class="row">
+  <div class="span12">
+    <ul class="breadcrumb">
+      <li>
+        <%= link_to @artist.artist_name, @artist %>
+        <span class="divider">/</span>
+      </li>
+
+      <li class="active"><%= @event.title %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <div class="well">
+
+      <h2><%= @event.title %></h2>
+      <p>
+        <%= image_tag @event.photo.url(:small), :class => "pull-right" if @event.photo.file? %>
+        <%= @event.about.html_safe %>
+      </p>
+      <h6>Start</h6>
+      <p><%= @event.start.strftime('%b %d, %Y at %H:%M') %></p>
+      <h6>End</h6>
+      <p><%= @event.start.strftime('%b %d, %Y at %H:%M') %></p>
+
+
+    </div>
+  </div>
+  <div class="span6">
+
+    <div class="well" id="comments">
+      <h6 class="hb">Comments</h6>
+      <%= render "comments/comments" %>
+      <h6 class="hb">Write your own comment</h6>
+      <%= render "comments/form" %>
+    </div>
+
+
+
+  </div>
+</div>
