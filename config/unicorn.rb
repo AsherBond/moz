@@ -1,9 +1,9 @@
-root = "/home/deployer/apps/solitude/current"
+root = "/home/deployer/apps/moz/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
-listen "/tmp/unicorn.solitude.sock"
+listen "/tmp/unicorn.moz.sock"
 worker_processes 2
 timeout 30

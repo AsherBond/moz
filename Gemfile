@@ -26,6 +26,7 @@ gem 'rolify'
 
 # OpenAuth 
 # --------
+gem 'omniauth-twitter'
 
 # Style Helpers
 # -------------

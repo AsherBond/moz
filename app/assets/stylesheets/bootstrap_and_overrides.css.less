@@ -125,3 +125,36 @@ footer h4{
  #gradient > .vertical(@red, lighten(@red, 15%));
  border-color:darken(@red, 10%);
 }
+
+
+// MONSTER
+
+.monster {
+  text-align:center;
+  background: url('/assets/home_bg_top.png') center bottom no-repeat;
+  
+  .transition(background-image .3s ease-in-out);
+}
+.monster section {
+  padding:0 30%;
+}
+
+.monster:hover {
+  background: url('/assets/home_bg_top_hover.png') center bottom no-repeat;
+}
+
+.monster h1 {
+  color: @myRed;
+  font: 70px 'Oleo Script';
+  letter-spacing:-2px;
+  font-weight:normal;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.4); 
+  padding-top:50px;
+}
+
+.monster p {
+  color: @black;
+  font: 24px 'Open Sans Condensed';
+  font-weight:700;
+  padding:20px 100px;
+}

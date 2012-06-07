@@ -119,6 +119,43 @@ ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
 
 
 --
+-- Name: blocks; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE blocks (
+    id integer NOT NULL,
+    scope character varying(255),
+    title character varying(255),
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    photo_file_name character varying(255),
+    photo_content_type character varying(255),
+    photo_file_size integer,
+    photo_updated_at timestamp without time zone
+);
+
+
+--
+-- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE blocks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE blocks_id_seq OWNED BY blocks.id;
+
+
+--
 -- Name: comments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -674,6 +711,13 @@ ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY blocks ALTER COLUMN id SET DEFAULT nextval('blocks_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
 
 
@@ -768,6 +812,14 @@ ALTER TABLE ONLY albums
 
 ALTER TABLE ONLY articles
     ADD CONSTRAINT articles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY blocks
+    ADD CONSTRAINT blocks_pkey PRIMARY KEY (id);
 
 
 --
@@ -1098,3 +1150,7 @@ INSERT INTO schema_migrations (version) VALUES ('20120527224503');
 INSERT INTO schema_migrations (version) VALUES ('20120527224541');
 
 INSERT INTO schema_migrations (version) VALUES ('20120527224559');
+
+INSERT INTO schema_migrations (version) VALUES ('20120604215651');
+
+INSERT INTO schema_migrations (version) VALUES ('20120604215713');

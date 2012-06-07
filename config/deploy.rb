@@ -8,10 +8,10 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "50.116.7.76", :web, :app, :db, primary: true
+server "10.207.107.54", :web, :app, :db, primary: true
 
-set :user, "deployer"
-set :application, "solitude"
+set :user, "cody"
+set :application, "moz"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false

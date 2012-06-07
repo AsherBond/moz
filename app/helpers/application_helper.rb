@@ -1,6 +1,13 @@
 
 module ApplicationHelper
 
+	def find_artist_by_song_id(song_id)
+		song = Song.find(song_id)
+		song_album = Album.find(song.album)
+		song_artist = User.find(song_album.user_id)
+		song_artist_name = song_artist.artist_name
+	end
+
 	def make_css_for(css_class,attribute,value,append=nil,prepend=nil)
 		if attribute == "background-image"
 			"#{css_class} { #{attribute}: url(#{value}); }" unless value.nil?
